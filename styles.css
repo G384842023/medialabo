@@ -1,0 +1,20 @@
+h1 {
+    color: white;
+    background-color: purple;
+}
+
+div#zentai> div {
+	margin-left: 5px;
+	background-color: #aeee98;
+}
+
+ul {
+    list-style-type: "\1F4C0";
+}
+
+h2 {
+    margin: 0;
+    padding-left: 20px;
+    position: relative;
+}
+  
