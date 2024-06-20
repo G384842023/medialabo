@@ -45,16 +45,19 @@
     <script>
         async function getWeather() {
             const cityId = document.getElementById('city-select').value;
-            const apiKey = '6a0f47fcd9db2c612d12f838e6a59b0d';
+            const apiKey = '8be9a73f9111fb811574e9cf6f4739f2'; // 新しいAPIキーに置き換えてください
             const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&units=metric`;
 
             try {
                 const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
                 const data = await response.json();
                 displayWeather(data);
             } catch (error) {
                 console.error('天気情報の取得中にエラーが発生しました:', error);
-                document.getElementById('weather-info').innerHTML = '<p>天気情報の取得中にエラーが発生しました。</p>';
+                document.getElementById('weather-info').innerHTML = `<p>天気情報の取得中にエラーが発生しました: ${error.message}</p>`;
             }
         }
 
