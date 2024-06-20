@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>世界の天気検索</title>
+    <title>世界の天気</title>
     <style>
         body {
             font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
         }
         .weather-info {
             margin-top: 20px;
@@ -14,55 +20,57 @@
     </style>
 </head>
 <body>
-    <h1>世界の天気検索</h1>
-    <form id="weatherForm">
-        <label for="city">都市を選択してください:</label>
-        <select name="city" id="city">
-            <option value="360630">Cairo</option>
-            <option value="524901">Moscow</option>
-            <option value="993800">Johannesburg</option>
-            <option value="1816670">Beijing</option>
-            <option value="1850147">Tokyo</option>
-            <option value="1880252">Singapore</option>
-            <option value="2147714">Sydney</option>
-            <option value="2643743">London</option>
-            <option value="2968815">Paris</option>
-            <option value="3451189">Rio de Janeiro</option>
-            <option value="5128581">New York</option>
-            <option value="5368361">Los Angeles</option>
+    <div class="container">
+        <h1>世界の天気</h1>
+        <select id="city-select">
+            <option value="360630">カイロ, エジプト</option>
+            <option value="524901">モスクワ, ロシア</option>
+            <option value="993800">ヨハネスブルク, 南アフリカ</option>
+            <option value="1816670">北京, 中国</option>
+            <option value="1850147">東京, 日本</option>
+            <option value="1880252">シンガポール, シンガポール</option>
+            <option value="2147714">シドニー, オーストラリア</option>
+            <option value="2643743">ロンドン, イギリス</option>
+            <option value="2968815">パリ, フランス</option>
+            <option value="3451189">リオデジャネイロ, ブラジル</option>
+            <option value="5128581">ニューヨーク, アメリカ</option>
+            <option value="5368361">ロサンゼルス, アメリカ</option>
         </select>
-        <input type="submit" value="検索">
-    </form>
-
-    <div class="weather-info" id="weatherInfo"></div>
+        <button onclick="getWeather()">天気を取得</button>
+        <div class="weather-info" id="weather-info">
+            <!-- 天気情報はここに表示されます -->
+        </div>
+    </div>
 
     <script>
-        document.getElementById('weatherForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const cityId = document.getElementById('city').value;
-            const apiKey = 'YOUR_OPENWEATHER_API_KEY'; // ここにAPIキーを入力
-            const url = `http://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&lang=ja&units=metric`;
+        async function getWeather() {
+            const cityId = document.getElementById('city-select').value;
+            const apiKey = '6a0f47fcd9db2c612d12f838e6a59b0d';
+            const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${6a0f47fcd9db2c612d12f838e6a59b0d}&units=metric`;
 
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    const weatherInfo = document.getElementById('weatherInfo');
-                    weatherInfo.innerHTML = `
-                        <h2>${data.name}の天気情報</h2>
-                        <p>緯度: ${data.coord.lat}</p>
-                        <p>経度: ${data.coord.lon}</p>
-                        <p>天気: ${data.weather[0].description}</p>
-                        <p>最低気温: ${data.main.temp_min}°C</p>
-                        <p>最高気温: ${data.main.temp_max}°C</p>
-                        <p>湿度: ${data.main.humidity}%</p>
-                        <p>風速: ${data.wind.speed} m/s</p>
-                        <p>風向: ${data.wind.deg}°</p>
-                    `;
-                })
-                .catch(error => {
-                    console.error('Error fetching weather data:', error);
-                });
-        });
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+                displayWeather(data);
+            } catch (error) {
+                console.error('天気情報の取得中にエラーが発生しました:', error);
+                document.getElementById('weather-info').innerHTML = '<p>天気情報の取得中にエラーが発生しました。</p>';
+            }
+        }
+
+        function displayWeather(data) {
+            const weatherInfo = `
+                <h2>${data.name}</h2>
+                <p>緯度: ${data.coord.lat}, 経度: ${data.coord.lon}</p>
+                <p>天気: ${data.weather[0].description}</p>
+                <p>最低気温: ${data.main.temp_min} °C</p>
+                <p>最高気温: ${data.main.temp_max} °C</p>
+                <p>湿度: ${data.main.humidity} %</p>
+                <p>風速: ${data.wind.speed} m/s</p>
+                <p>風向: ${data.wind.deg}°</p>
+            `;
+            document.getElementById('weather-info').innerHTML = weatherInfo;
+        }
     </script>
 </body>
 </html>
