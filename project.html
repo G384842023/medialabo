@@ -4,20 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>世界の天気</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .weather-info {
-            margin-top: 20px;
-        }
-    </style>
     <link rel="stylesheet" href="project.css">
 </head>
 <body>
@@ -43,38 +29,36 @@
         </div>
     </div>
 
+    <script src="weather.js"></script>
     <script>
         async function getWeather() {
-            const cityId = document.getElementById('city-select').value;
-            const apiKey = '8be9a73f9111fb811574e9cf6f4739f2'; // 新しいAPIキーに置き換えてください
-            const url = `https://api.openweathermap.org/data/2.5/weather?id=${cityId}&appid=${apiKey}&units=metric`;
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                const data = await response.json();
-                displayWeather(data);
-            } catch (error) {
-                console.error('天気情報の取得中にエラーが発生しました:', error);
-                document.getElementById('weather-info').innerHTML = `<p>天気情報の取得中にエラーが発生しました: ${error.message}</p>`;
-            }
+            displayWeather(data); // Use the static data from weather.js
         }
 
         function displayWeather(data) {
             const weatherInfo = `
                 <h2>${data.name}</h2>
-                <p>緯度: ${data.coord.lat}, 経度: ${data.coord.lon}</p>
                 <p>天気: ${data.weather[0].description}</p>
                 <p>最低気温: ${data.main.temp_min} °C</p>
                 <p>最高気温: ${data.main.temp_max} °C</p>
                 <p>湿度: ${data.main.humidity} %</p>
                 <p>風速: ${data.wind.speed} m/s</p>
-                <p>風向: ${data.wind.deg}°</p>
             `;
             document.getElementById('weather-info').innerHTML = weatherInfo;
+
+            // コンソールにデータを出力する部分
+            console.log(`都市名: ${data.name}`);
+            console.log(`天気: ${data.weather[0].description}`);
+            console.log(`最低気温: ${data.main.temp_min} °C`);
+            console.log(`最高気温: ${data.main.temp_max} °C`);
+            console.log(`湿度: ${data.main.humidity} %`);
+            console.log(`風速: ${data.wind.speed} m/s`);
         }
+
+        // ページがロードされたときに天気情報を表示する
+        document.addEventListener("DOMContentLoaded", () => {
+            displayWeather(data);
+        });
     </script>
 </body>
 </html>
