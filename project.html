@@ -7,36 +7,14 @@
     <link rel="stylesheet" href="project.css">
 </head>
 <body>
-    <div class="container">
-        <h1>世界の天気</h1>
-        <select id="city-select">
-            <option value="360630">カイロ, エジプト</option>
-            <option value="524901">モスクワ, ロシア</option>
-            <option value="993800">ヨハネスブルク, 南アフリカ</option>
-            <option value="1816670">北京, 中国</option>
-            <option value="1850147">東京, 日本</option>
-            <option value="1880252">シンガポール, シンガポール</option>
-            <option value="2147714">シドニー, オーストラリア</option>
-            <option value="2643743">ロンドン, イギリス</option>
-            <option value="2968815">パリ, フランス</option>
-            <option value="3451189">リオデジャネイロ, ブラジル</option>
-            <option value="5128581">ニューヨーク, アメリカ</option>
-            <option value="5368361">ロサンゼルス, アメリカ</option>
-        </select>
-        <button onclick="getWeather()">天気を取得</button>
-        <div class="weather-info" id="weather-info">
-            <!-- 天気情報はここに表示されます -->
-        </div>
-    </div>
-
     <script src="weather.js"></script>
     <script>
         async function getWeather() {
-            displayWeather(data); // Use the static data from weather.js
+            displayWeatherInResult(data); // #resultに天気情報を表示
         }
 
-        function displayWeather(data) {
-            const weatherInfo = `
+        function displayWeatherInResult(data) {
+            const resultInfo = `
                 <h2>${data.name}</h2>
                 <p>天気: ${data.weather[0].description}</p>
                 <p>最低気温: ${data.main.temp_min} °C</p>
@@ -44,21 +22,14 @@
                 <p>湿度: ${data.main.humidity} %</p>
                 <p>風速: ${data.wind.speed} m/s</p>
             `;
-            document.getElementById('weather-info').innerHTML = weatherInfo;
-
-            // コンソールにデータを出力する部分
-            console.log(`都市名: ${data.name}`);
-            console.log(`天気: ${data.weather[0].description}`);
-            console.log(`最低気温: ${data.main.temp_min} °C`);
-            console.log(`最高気温: ${data.main.temp_max} °C`);
-            console.log(`湿度: ${data.main.humidity} %`);
-            console.log(`風速: ${data.wind.speed} m/s`);
+            document.getElementById('result').innerHTML = resultInfo;
         }
 
         // ページがロードされたときに天気情報を表示する
         document.addEventListener("DOMContentLoaded", () => {
-            displayWeather(data);
+            displayWeatherInResult(data);
         });
     </script>
+    <div id="result"></div>
 </body>
 </html>
