@@ -7,6 +7,25 @@
     <link rel="stylesheet" href="project.css">
 </head>
 <body>
+
+    <h1>世界の天気</h1>
+    <label for="city-select">都市名</label>
+    <select name="city-select"id="city-select">
+        <option value="360630">カイロ, エジプト</option>
+        <option value="524901">モスクワ, ロシア</option>
+        <option value="993800">ヨハネスブルク, 南アフリカ</option>
+        <option value="1816670">北京, 中国</option>
+        <option value="1850147">東京, 日本</option>
+        <option value="1880252">シンガポール, シンガポール</option>
+        <option value="2147714">シドニー, オーストラリア</option>
+        <option value="2643743">ロンドン, イギリス</option>
+        <option value="2968815">パリ, フランス</option>
+        <option value="3451189">リオデジャネイロ, ブラジル</option>
+        <option value="5128581">ニューヨーク, アメリカ</option>
+        <option value="5368361">ロサンゼルス, アメリカ</option>
+    </select>
+    <button id="getWeather">検索</button>
+        <div class="weather-info" id="weather-info">
     <script src="weather.js"></script>
     <script>
         async function getWeather() {

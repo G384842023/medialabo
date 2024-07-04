@@ -49,9 +49,17 @@ let data = {
 
 ////////// 課題3-2 ここからプログラムを書こう
 
-console.log(`都市名: ${data.name}`);
-console.log(`天気: ${data.weather[0].description}`);
-console.log(`最低気温: ${data.main.temp_min} °C`);
-console.log(`最高気温: ${data.main.temp_max} °C`);
-console.log(`湿度: ${data.main.humidity} %`);
-console.log(`風速: ${data.wind.speed} m/s`);
+//console.log(`都市名: ${data.name}`);
+//console.log(`天気: ${data.weather[0].description}`);
+//console.log(`最低気温: ${data.main.temp_min} °C`);
+//console.log(`最高気温: ${data.main.temp_max} °C`);
+//console.log(`湿度: ${data.main.humidity} %`);
+//console.log(`風速: ${data.wind.speed} m/s`);
+
+let b = document.querySelector('button#getWeather');
+b.addEventListener('click', showSelectResult);
+
+function showSelectResult(){
+  let s = document.querySelector('select#city-select').value;
+  console.log('都市id:'+s)
+}
