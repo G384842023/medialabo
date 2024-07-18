@@ -41,13 +41,13 @@ function finish() {
 }
 
 function print(data) {
-    const weatherInfo = document.getElementById('weather-info');
-    weatherInfo.innerHTML = `
-        <h2>${data.name}</h2>
-        <p>天気: ${data.weather[0].description}</p>
-        <p>最低気温: ${data.main.temp_min} °C</p>
-        <p>最高気温: ${data.main.temp_max} °C</p>
-        <p>湿度: ${data.main.humidity} %</p>
-        <p>風速: ${data.wind.speed} m/s</p>
-    `;
+  const resultInfo = `
+    <h2>${data.name}</h2>
+    <p>天気: ${data.weather[0].description}</p>
+    <p>最低気温: ${data.main.temp_min} °C</p>
+    <p>最高気温: ${data.main.temp_max} °C</p>
+    <p>湿度: ${data.main.humidity} %</p>
+    <p>風速: ${data.wind.speed} m/s</p>
+  `;
+  document.getElementById('weather-info').innerHTML = resultInfo;
 }
