@@ -1,65 +1,56 @@
-let data = {
-  "coord": {
-    "lon": 116.3972,
-    "lat": 39.9075
-  },
-  "weather": [
-    {
-      "id": 803,
-      "main": "Clouds",
-      "description": "曇りがち",
-      "icon": "04d"
-    }
-  ],
-  "base": "stations",
-  "main": {
-    "temp": 9.94,
-    "feels_like": 8.65,
-    "temp_min": 9.94,
-    "temp_max": 9.94,
-    "pressure": 1022,
-    "humidity": 14,
-    "sea_level": 1022,
-    "grnd_level": 1016
-  },
-  "visibility": 10000,
-  "wind": {
-    "speed": 2.65,
-    "deg": 197,
-    "gust": 4.84
-  },
-  "clouds": {
-    "all": 53
-  },
-  "dt": 1646542386,
-  "sys": {
-    "type": 1,
-    "id": 9609,
-    "country": "CN",
-    "sunrise": 1646520066,
-    "sunset": 1646561447
-  },
-  "timezone": 28800,
-  "id": 1816670,
-  "name": "北京市",
-  "cod": 200
-};
-
-
-
-////////// 課題3-2 ここからプログラムを書こう
-
-//console.log(`都市名: ${data.name}`);
-//console.log(`天気: ${data.weather[0].description}`);
-//console.log(`最低気温: ${data.main.temp_min} °C`);
-//console.log(`最高気温: ${data.main.temp_max} °C`);
-//console.log(`湿度: ${data.main.humidity} %`);
-//console.log(`風速: ${data.wind.speed} m/s`);
-
+//ボタン処理
 let b = document.querySelector('button#getWeather');
 b.addEventListener('click', showSelectResult);
 
-function showSelectResult(){
-  let s = document.querySelector('select#city-select').value;
-  console.log('都市id:'+s)
+function showSelectResult() {
+  let cityId = document.querySelector('select#city-select').value;
+  if (cityId) {
+    console.log('都市id:' + cityId);
+    sendRequest(cityId);
+  } else {
+    alert('都市を選択してください');
+  }
+}
+
+function sendRequest(cityId) {
+  // URL を設定
+  let url = `https://www.nishita-lab.org/web-contents/jsons/openweather/${cityId}.json`;
+
+  // 通信開始
+  axios.get(url)
+      .then(showResult)   // 通信成功
+      .catch(showError)   // 通信失敗
+      .then(finish);      // 通信の最後の処理
+}
+
+// 通信が成功した時の処理
+function showResult(resp) {
+  // サーバから送られてきたデータを出力
+  let data = resp.data;
+
+  // データを表示する関数を呼び出し
+  print(data);
+}
+
+// 通信エラーが発生した時の処理
+function showError(err) {
+  console.log(err);
+  alert('天気情報を取得できませんでした。');
+}
+
+// 通信の最後にいつも実行する処理
+function finish() {
+  console.log('Ajax 通信が終わりました');
+}
+
+function print(data) {
+  const resultInfo = `
+    <h2>${data.name}</h2>
+    <p>天気: ${data.weather[0].description}</p>
+    <p>最低気温: ${data.main.temp_min} °C</p>
+    <p>最高気温: ${data.main.temp_max} °C</p>
+    <p>湿度: ${data.main.humidity} %</p>
+    <p>風速: ${data.wind.speed} m/s</p>
+  `;
+  document.getElementById('weather-info').innerHTML = resultInfo;
 }
