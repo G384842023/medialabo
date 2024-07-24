@@ -1,10 +1,10 @@
 let re = document.querySelector('div#result');
-let p1 = document.createElement('li');
-let p2 = document.createElement('li');
-let p3 = document.createElement('li');
-let p4 = document.createElement('li');
-let p5 = document.createElement('li');
-let p6 = document.createElement('li');
+let p1 = document.createElement('p');
+let p2 = document.createElement('p');
+let p3 = document.createElement('p');
+let p4 = document.createElement('p');
+let p5 = document.createElement('p');
+let p6 = document.createElement('p');
 
     // ボタン処理
     let b = document.querySelector('button#getWeather');
