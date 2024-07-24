@@ -1,103 +1,106 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>My test page</title>
-    <link rel="stylesheet" href="styles.css">
-  </head>
-
-    <h1>「Webコンテンツ作成」の成果</h1>
-    <h2>本テーマについて</h2>
-    <p>
-      <ul>
-        <li>HTML によって Web ページの構造を記述する基本的な方法がわかる</li>
-        <li>CSS によって Web ページの見た目を設定する基本的な方法がわかる</li>
-        <li>JavaScript によって Web ページのインタラクティブな処理を記述する基本的な方法がわかる</li>
-        <li>HTML, CSS, JavaScript の構文リファレンスから，構文の書式や使用方法の情報を入手できる．</li>
-        <li>HTML, CSS, JavaScript, 画像・音声・動画ファイルを組み合わせて簡単な Web ページが作成できる</li>
-      </ul>
-    </p>
-    <h2>プロジェクト課題について</h2>
-    <p>
-      世界の天気を選択した。プルダウンを開くと、選択肢が表示される都市を選択し検索ボタンを押すと
-      選択肢と結びついた都市idを元にurlから
-      <p> プロジェクト課題で作成したページ:<a href="https://g384842023.github.io/medialabo/project.html" 
-      target="_blank">project.html</a></p>
-    </p>
-    <h2>数当てゲーム</h2>
-    <p>
-      <p>
-      kaisuをを1増やし、回数と予想を出力する。予想回数が4回以上の場合、「ゲームは終わっています」と表示する。
-      予想が正解の場合、「正解です。おめでとう!」と表示し、kaisuを4に設定する。3回目の予想が外れた場合、「残念でした答えは〇〇です」と表示する。
-      ユーザーの予想が正解より小さい場合、「答えはもっと大きいですよ」と表示する。ユーザーの予想が正解より大きい場合、「答えはもっと小さいですよ」と表示する。
-      </p>
-      <p>
-      数当てゲームのhantei()メソッドを修正し、結果をコンソールではなくHTMLに表示する。
-      予想回数と結果を各要素に表示し、p#resultに出力する。まず4回実行し、次に1回実行して動作を確認した。
-      </p>
-      <p>
-        p要素のテキストを削除し、ラベル、テキストボックス、回答ボタンを設置し、
-        それぞれに属性を指定した。また、回答ボタンのクリックイベントハンドラとして hantei を登録、
-        yosoをテキストボックスの中の値を示すようにした。
-      </p>
-      <p> 作成したページ:<a href="https://g384842023.github.io/medialabo/kazuate.html" 
-      target="_blank">project.html</a></p>
-    </p>
-    <h2>各授業回の学習事項</h2>
-
+<head>
+  <meta charset="utf-8">
+  <title>My test page</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>「Webコンテンツ作成」の成果</h1>
+  <h2>本テーマについて</h2>
+  <ul>
+    <li>HTML によって Web ページの構造を記述する基本的な方法がわかる</li>
+    <li>CSS によって Web ページの見た目を設定する基本的な方法がわかる</li>
+    <li>JavaScript によって Web ページのインタラクティブな処理を記述する基本的な方法がわかる</li>
+    <li>HTML, CSS, JavaScript の構文リファレンスから，構文の書式や使用方法の情報を入手できる</li>
+    <li>HTML, CSS, JavaScript, 画像・音声・動画ファイルを組み合わせて簡単な Web ページが作成できる</li>
+  </ul>
+  
+  <h2>プロジェクト課題について</h2>
+  <p>
+    世界の天気を選択した。プルダウンを開くと、選択肢が表示される都市を選択し検索ボタンを押すと
+    選択肢と結びついた都市idを元にurlを決定。そこに通信することで情報を取得する。出力される情報は、
+    上から「都市名」「天気」「最低気温」「最高気温」「湿度」の5つである。
+  </p>
+  <p>プロジェクト課題で作成したページ:
+    <a href="https://g384842023.github.io/medialabo/project.html" target="_blank">project.html</a>
+  </p>
+  
+  <h2>数当てゲーム</h2>
+  <p>
+    kaisuを1増やし、回数と予想を出力する。予想回数が4回以上の場合、「ゲームは終わっています」と表示する。
+    予想が正解の場合、「正解です。おめでとう!」と表示し、kaisuを4に設定する。3回目の予想が外れた場合、「残念でした答えは〇〇です」と表示する。
+    ユーザーの予想が正解より小さい場合、「答えはもっと大きいですよ」と表示する。ユーザーの予想が正解より大きい場合、「答えはもっと小さいですよ」と表示する。
+    数当てゲームのhantei()メソッドを修正し、結果をコンソールではなくHTMLに表示する。
+    予想回数と結果を各要素に表示し、p#resultに出力する。まず4回実行し、次に1回実行して動作を確認した。
+    p要素のテキストを削除し、ラベル、テキストボックス、回答ボタンを設置し、それぞれに属性を指定した。また、回答ボタンのクリックイベントハンドラとして hantei を登録、yosoをテキストボックスの中の値を示すようにした。
+  </p>
+  <p>作成したページ:
+    <a href="https://g384842023.github.io/medialabo/kazuate.html" target="_blank">kazuate.html</a>
+  </p>
+  
+  <h2>各授業回の学習事項</h2>
   <div id="zentai">
+    <div>
+      <h3>第1回WWWとHTML</h3>
+      <p>
+        HTMLの要素には、属性、空白の扱い、特殊文字、コメントなどがあります。
+        属性は要素に追加情報を提供し、空白はHTML内では1つの空白にまとめられます。
+        特殊文字は&で始まるエンティティで表され、コメントは<!-- -->で囲まれます。
+        リファレンスは公式ドキュメントやオンラインリソースで確認でき、デバッグ方法としてはブラウザの開発者ツールを使用します。
+        ハイパーリンクは&lt;a&gt;タグで設置し、画像は&lt;img&gt;タグで埋め込みます。説明リストは＜dl＞、＜dt＞、＜dd＞タグを使用して表示します。
+      </p>
+      <p>演習の成果:
+        <a href="https://g384842023.github.io/medialabo/practice-html/elements.html" target="_blank">演習1-4:HTMLのさまざまな要素</a>
+      </p>
+    </div>
+    <div>
+      <h3>第2回CSSによるWebページの装飾</h3>
+      <p>
+        CSSとはページをページの修飾する記述のことを言う。CSSはhtmlのhead要素にリンクを書き込むことで反映されるようになる。
+        リンク先のCSSでは要素の指定と変更内容の指定を行う。プロパティのうち，font, background, padding, border, margin は複数の設定をまとめて記述できます。
+        paddingにつづく値は、順に上、右、左、下をさす。
+      </p>
+      <p>演習の成果:
+        <a href="https://g384842023.github.io/medialabo/practice-css/browser-intro.html" target="_blank">演習2-3:ウェブブラウザ説明ページの装飾</a>
+      </p>
+    </div>
+    <div>
+      <h3>第3回JavaScriptの基本</h3>
+      <p>
+        JavaScriptを用いることでページの自動更新や、アニメーションなどの動きのあるページを作成できる。
+        実装方法は3つscript要素の中に方法、heed要素にscript要素に追加し、外部に作成する方法。
+        HTML 要素の属性に直接プログラムを埋め込む方法がある。また、JavaScriptはJavaと違い、エラーが起こらない。
+      </p>
+      <p>演習の成果:
+        <a href="https://g384842023.github.io/medialabo/practice-js/obj-practice.html" target="_blank">演習3-3:オブジェクトの参照</a>
+      </p>
+    </div>
+    <div>
+      <h3>第4回DOMとJavaScript</h3>
+      <p>
+        DOMとは Web コンテンツを表現するデータ構造である。DOM を使用することによってJavaScript などのプログラムによってWeb コンテンツの内容を読み取ったり，コンテンツに変更を加えたりする処理が書けるようになります。
+        DOM とイベント処理を組み合わせるとページ上のボタンを押すと，ページの表示内容が変化する、サーバとの通信が完了したときに，受信したデータをページに表示する、といった動きのあるページを作れる。
+      </p>
+      <p>演習の成果:
+        <a href="https://g384842023.github.io/medialabo/practice-dom/dom-exercise.html" target="_blank">練習問題4-2から4-5</a>
+      </p>
+    </div>
+    <div>
+      <h3>第5回イベント処理</h3>
+      <p>
+        イベントとはクリックなどのWebページ上で起きた動作や出来事のことである。
+        イベント処理でやりたいことは「要素 〇〇 を △△ したら，□□ を実行する」という風に日本語で書くことができる。△△はイベント名、□□ イベントハンドラとなり、イベントハンドラは自身で登録する。
+      </p>
+      <p>演習の成果:
+        <a href="https://g384842023.github.io/medialabo/practice-event/event-list.html" target="_blank">練習問題5-3</a>
+      </p>
+    </div>
+  </div>
   
-  <div>
-    <h3>第1回WWWとHTML</h3>
-    <p>
-      HTMLの要素には、属性、空白の扱い、特殊文字、コメントなどがあります。
-      属性は要素に追加情報を提供し、空白はHTML内では1つの空白にまとめられます。
-      特殊文字は&で始まるエンティティで表され、コメントは<!-- -->で囲まれます。
-      リファレンスは公式ドキュメントやオンラインリソースで確認でき、デバッグ方法としてはブラウザの開発者ツールを使用します。
-      ハイパーリンクは＜a＞タグで設置し、画像は＜img＞タグで埋め込みます。説明リストは＜dl＞、＜dt＞、＜dd＞タグを使用して表示します。
-    </p>
-    <p>演習の成果：<a href="https://g384842023.github.io/medialabo/practice-html/elements.html" 
-      target="_blank">演習1-4:HTMLのさまざまな要素</a></p>
-  </div>
-  <div>
-    <h3>第2回CSSによるWebページの装飾</h3>
-    <p>CSSとはページをページの修飾する記述のことを言う。CSSはhtmlのhead要素にリンクを書き込むことで反映されるようになる。
-      リンク先のCSSでは要素の指定と変更内容の指定を行う。プロパティのうち，font, background, padding, border, margin は複数の設定をまとめて記述できます。
-      paddingにつづく値は、順に上、右、左、下をさす。
-      
-    </p>
-    <p>演習の成果：<a href="https://g384842023.github.io/medialabo/practice-css/browser-intro.html" 
-      target="_blank">演習2-3:ウェブブラウザ説明ページの装飾</a></p>
-  
-  </div>
-  <div>
-    <h3>第3回JavaScriptの基本</h3>
-    <p>JavaScriptを用いることでページの自動更新や、アニメーションなどの動きのあるページを作成できる。
-      実装方法は3つscript要素の中に方法、heed要素にscript要素に追加し、外部に作成する方法。
-      HTML 要素の属性に直接プログラムを埋め込む方法がある。また、JavaScriptはJavaと違い、エラーが起こらない。
-    </p>
-    <p>演習の成果：<a href="https://g384842023.github.io/medialabo/practice-js/obj-practice.html" 
-      target="_blank">演習3-3:オブジェクトの参照</a></p>
-  </div>
-  <div>
-    <h3>第4回DOMとJavaScript</h3>
-    <p>DOMとは Web コンテンツを表現するデータ構造である。DOM を使用することによってJavaScript などのプログラムによってWeb コンテンツの内容を読み取ったり，コンテンツに変更を加えたりする処理が書けるようになります。
-      DOM とイベント処理を組み合わせるとページ上のボタンを押すと，ページの表示内容が変化する、
-      サーバとの通信が完了したときに，受信したデータをページに表示する、といった動きのあるページを作れる。
-    </p>
-    <p>演習の成果：<a href="https://g384842023.github.io/medialabo/practice-dom/dom-exercise.html" 
-      target="_blank">練習問題4-2から4-5</a></p>
-  </div>
-  <div>
-    <h3>第5回イベント処理</h3>
-    <p>
-      イベントとはクリックなどのWebページ上で起きた動作や出来事のことである。
-      イベント処理でやりたいことは「要素 〇〇 を △△ したら，□□ を実行する」
-      という風に日本語で書くことができる。△△はイベント名、□□ イベントハンドラとなり、
-      イベントハンドラは自身で登録する。
-    </p>
-    <p>演習の成果：<a href="https://g384842023.github.io/medialabo/practice-event/event-list.html" 
-      target="_blank">練習問題5-3</a></p>
-  </div>
-  </body>
+  <h2>工夫点，苦心点，強調点，感想</h2>
+  <p>
+   
+  </p>
+</body>
 </html>

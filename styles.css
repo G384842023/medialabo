@@ -12,9 +12,17 @@ ul {
     list-style-type: "\1F4C0";
 }
 
-h2 {
-    margin: 0;
-    padding-left: 20px;
-    position: relative;
+h2{
+    border-top: 4px solid rgb(13, 0, 255);
+    border-bottom: 4px solid rgb(13, 0, 255);
+    border-left: 6px groove rgb(13, 0, 255);
 }
-  
+
+
+div#zentai {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 300px; /* 高さを300pxに増加 */
+    grid-gap: 10px;
+    width: 1200px; /* 幅を1200pxに増加 */
+}
