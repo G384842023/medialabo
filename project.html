@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>世界の天気</title>
     <link rel="stylesheet" href="project.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+    <script src="weather.js" defer></script>
 </head>
 <body>
 
@@ -26,11 +28,9 @@
             <option value="5368361">ロサンゼルス, アメリカ</option>
         </select>
         <button id="getWeather">検索</button>
-        <div class="weather-info" id="weather-info"></div>
+        <div class="weather-info" id="result"></div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="weather.js"></script>
+    <div id="result"></div>
 </body>
 </html>
 
