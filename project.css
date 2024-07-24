@@ -13,6 +13,7 @@ body {
     margin-top: 20px;
     border-collapse: collapse;
     width: 100%;
+    text-align: center;
 }
 
 .weather-info h2, .weather-info p {

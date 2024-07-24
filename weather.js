@@ -28,6 +28,10 @@ function showResult(resp) {
   // サーバから送られてきたデータを出力
   let data = resp.data;
 
+  if (typeof data === 'string') {
+    data = JSON.parse(data);
+  }
+
   // データを表示する関数を呼び出し
   print(data);
 }
@@ -44,13 +48,40 @@ function finish() {
 }
 
 function print(data) {
-  const resultInfo = `
-    <h2>${data.name}</h2>
-    <p>天気: ${data.weather[0].description}</p>
-    <p>最低気温: ${data.main.temp_min} °C</p>
-    <p>最高気温: ${data.main.temp_max} °C</p>
-    <p>湿度: ${data.main.humidity} %</p>
-    <p>風速: ${data.wind.speed} m/s</p>
-  `;
-  document.getElementById('weather-info').innerHTML = resultInfo;
+  const weatherInfo = document.getElementById('weather-info');
+
+  // Clear previous content
+  weatherInfo.textContent = '';
+
+  // Create elements for each piece of information
+  const cityHeading = document.createElement('h2');
+  cityHeading.textContent = data.name;
+
+  const weatherDesc = document.createElement('p');
+  weatherDesc.textContent = `天気: ${data.weather[0].description}`;
+
+  const minTemp = document.createElement('p');
+  minTemp.textContent = `最低気温: ${data.main.temp_min} °C`;
+
+  const maxTemp = document.createElement('p');
+  maxTemp.textContent = `最高気温: ${data.main.temp_max} °C`;
+
+  const humidity = document.createElement('p');
+  humidity.textContent = `湿度: ${data.main.humidity} %`;
+
+  const windSpeed = document.createElement('p');
+  windSpeed.textContent = `風速: ${data.wind.speed} m/s`;
+
+  // Append elements to weatherInfo container
+  weatherInfo.appendChild(cityHeading);
+  weatherInfo.appendChild(weatherDesc);
+  weatherInfo.appendChild(minTemp);
+  weatherInfo.appendChild(maxTemp);
+  weatherInfo.appendChild(humidity);
+  weatherInfo.appendChild(windSpeed);
+}
+
+
+function clearWeatherInfo() {
+    document.getElementById('weather-info').textContent = '';
 }
